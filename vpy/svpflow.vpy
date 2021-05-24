@@ -2,6 +2,7 @@ import vapoursynth as vs
 
 core = vs.get_core()
 clip = core.ffms2.Source(source=source, fpsnum=int(fpsnum), fpsden=int(fpsden))
+#clip = core.resize.Point(clip, format=vs.YUV420P8, matrix_s="709")
 
 super = core.svp1.Super(clip, "{\"gpu\":1,\"pel\":2,\"full\":true}")
 vectors = core.svp1.Analyse(super["clip"],super["data"],clip,"{}")
